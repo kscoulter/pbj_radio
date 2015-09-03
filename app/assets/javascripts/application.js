@@ -32,5 +32,9 @@ App = {
 
 
 $(document).ready(function() {
-  
+  Backbone.history.start();
+  songs = new App.Collections.Songs();
+  songs.fetch({reset: true});
+
+  listView = new App.Views.SongList({collection: songs});
 });
