@@ -2,8 +2,13 @@ App.Views.Song = Backbone.View.extend({
   className: "song",
   tagName: "div",
 
-  event: {
+  events: {
+    "click": "renderPlaying"
+  },
 
+  renderPlaying: function(){
+    var nowPlaying = new App.Views.Player()
+    nowPlaying.setSong(this.model);
   },
 
   initialize: function(){
