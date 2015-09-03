@@ -9,6 +9,8 @@ App.Views.Song = Backbone.View.extend({
   renderPlaying: function(){
     var nowPlaying = new App.Views.Player()
     nowPlaying.setSong(this.model);
+    var id = this.model.attributes.id
+    App.Routers.song.navigate("songs/" + id + "/play")
   },
 
   initialize: function(){

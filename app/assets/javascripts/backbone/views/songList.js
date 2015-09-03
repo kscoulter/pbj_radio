@@ -4,6 +4,7 @@ App.Views.SongList = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.collection, 'reset', this.renderAll);
+    this.listenTo(this.collection, 'add', this.renderOne);
   },
 
   renderOne: function(song){
@@ -15,5 +16,6 @@ App.Views.SongList = Backbone.View.extend({
   renderAll: function(){
     this.$el.empty();
     this.collection.each(this.renderOne.bind(this));
-  }
+  },
+
 })

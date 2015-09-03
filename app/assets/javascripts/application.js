@@ -32,9 +32,11 @@ App = {
 
 
 $(document).ready(function() {
+  App.Routers.song = new App.Routers.Song();
   Backbone.history.start();
   songs = new App.Collections.Songs();
   songs.fetch({reset: true});
-  
+  newSong = new App.Views.NewSong({collection: songs});
   listView = new App.Views.SongList({collection: songs});
+  player = new App.Views.Player();
 });
